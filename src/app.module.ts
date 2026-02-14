@@ -16,17 +16,16 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       inject: [ConfigService],
       useFactory: (config: ConfigService) => {
         const dbUrl = config.get("DATABASE_URL");
-        console.log('DB URL:', dbUrl);  // Add this for debugging
         return {
           type: 'postgres',
           url: dbUrl,
           autoLoadEntities: true,
-          synchronize: true,
+          synchronize: false,
           ssl: {
             reqiure: true,
             rejectUnauthorized: false,
           },
-          logging: true,
+          logging: false,
         };
       },
     }),
