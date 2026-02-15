@@ -1,7 +1,7 @@
 {
-  "name": "simple-blog",
+  "name": "raft",
   "version": "0.0.1",
-  "description": "",
+  "description": "Blog API built with NestJS and Postgresql",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
