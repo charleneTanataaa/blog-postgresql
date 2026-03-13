@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+:root {
+  padding: 0;
+  --pond-deep: #1a4a4a;
+  --pond-mid: #2a7c7c;
+  --pond-surface: #4ab5b0;
+  --ripple-light: #abddda;
+  --foam: #c8f0ee;
+  --lily-pad: #3d8c5c;
+  --sky-teal: #e0f5f4;
+  --golden-hour: #f0c070;
+  --pebble: #f7f3ef;
+  --bark: #5c3d2e;
+}
+
+.pond-home {
+  @apply relative min-h-screen overflow-hidden p-10;
+  background: #cae5e3;
+}
+
+.pond-home::before{
+  @apply fixed inset-0 pointer-events-none;
+  content: '';
+  background: 
+    radial-gradient(ellipse 80% 30% at 20% 70%, rgba(238, 242, 242, 0.3) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 20% at 80% 40%, rgba(63, 162, 142, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse 100% 40% at 50% 90%, rgba(53, 131, 131, 0.4) 0%, transparent 60%);
+  z-index: 0;
+}
+
+.post-content {
+  @apply relative mx-auto max-w-2xl;
+  z-index: 1;
+}
+
+.pond-header{
+  @apply text-center mb-2 font-mono;
+}
+
+.header-divider{
+  @apply mx-auto mt-5 w-full h-[1px] bg-[var(--pond-mid)];
+  opacity: 0.4;
+}
+
+.pond-loading{
+  @apply h-[80vh] flex items-center justify-center gap-2 opacity-50 px-10;
+}
+
+.loading-dot{
+  @apply w-1.5 h-1.5 rounded-full bg-[var(--pond-mid)];
+  animation: bob 1.2s ease-in-out infinite;
+}
+.loading-dot:nth-child(2) { animation-delay: 0.2s; }
+.loading-dot:nth-child(3) { animation-delay: 0.4s; }
+
+.post-card {
+  @apply rounded-sm px-8 py-6;
+  background: rgba(255, 255, 255, 0.80);
+  text-decoration: none;
+}
+
+.post-excerpt{
+  @apply text-[#2d5a58] m-0;
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+.pond-title {
+  @apply text-4xl font-semibold tracking-wide text-[var(--pond-deep)];
+}
+
+.pond-subtitle {
+  @apply mt-2 text-sm italic opacity-70 text-[var(--pond-mid)];
+}
+
+.posts-list {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6 mt-10;
+}
+
+.post-title {
+  @apply text-xl font-medium mb-2 text-[var(--pond-deep)];
+}
+
+.pond-empty {
+  @apply text-center opacity-60 mt-10;
+}
+.nav-list{
+  @apply hover:font-semibold border-b border-[#cae5e3] hover:border-[var(--pond-surface)] transition  duration-300;
+}
